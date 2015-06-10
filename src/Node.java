@@ -3,11 +3,15 @@ import java.util.ArrayList;
 /**
  * Created by Sagar on 10-6-2015.
  */
-public abstract class Gate {
+public abstract class Node implements Output, Input {
     ArrayList<Output> observers;
-    boolean value;
 
-    public Gate() {
+    int maxInputs;
+    int currentNumInputs;
+    Input[] inputs;
+    int value;
+
+    public Node() {
         observers = new ArrayList<>();
     }
 
@@ -17,19 +21,11 @@ public abstract class Gate {
 
     public void notifyObservers(){
         for(Output output : observers){
-            output.update();
+            output.update(this);
         }
     }
 
     public void unregisterObserver(Output removeObserver){
         observers.remove(removeObserver);
     }
-
-    //following methodes abstract because they are gate dependent
-    Input[] input;
-    public abstract void update();
-
-    public abstract void pair(Input newInput);
-
-    public abstract void unpair(Input oldInput);
 }
