@@ -48,4 +48,8 @@ public class OutputNode implements Output {
             value = 0;
         }
     }
+
+    public int getValue(){
+        return value;
+    }
 }
