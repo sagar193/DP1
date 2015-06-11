@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Sagar on 11-6-2015.
@@ -12,12 +13,14 @@ public class Application {
     ArrayList<InputNode> startNodes;
     ArrayList<Node> nodes;
     ArrayList<OutputNode> endNodes;
+    HashMap<String, NodeInterface> allNodes;
 
     private Application() {
         System.out.println("Application gemaakt");
         startNodes = new ArrayList<>();
         nodes = new ArrayList<>();
         endNodes = new ArrayList<>();
+        allNodes = new HashMap<>();
 
         NodeReader reader = new NodeReader();
         reader.ReadFile();
