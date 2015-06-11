@@ -36,6 +36,12 @@ public class Application {
         System.out.println("Value and bij aanzetten B "+ and.getValue());
         System.out.println("Value output bij aanzetten B "+ output.getValue()+"\n");
 
+        and.unpair(B);
+        System.out.println("Value A bij untkoppelen B "+ A.getValue());
+        System.out.println("Value B bij untkoppelen B "+ B.getValue());
+        System.out.println("Value and bij untkoppelen B "+ and.getValue());
+        System.out.println("Value output bij untkoppelen B "+ output.getValue()+"\n");
+
         A.turnOff();
         System.out.println("Value A bij uitzetten A "+ A.getValue());
         System.out.println("Value B bij uitzetten A "+ B.getValue());

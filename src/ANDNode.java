@@ -43,9 +43,11 @@ public class ANDNode extends Node {
         if (inputs[0] == oldInput){
             inputs[0].unregisterObserver(this);
             inputs[0] = null;
+            value = 2;
         } else if (inputs[1] == oldInput){
             inputs[1].unregisterObserver(this);
             inputs[1] = null;
+            value = 2;
         } else {
             System.out.println("Error, ANDGate probeerd een input te unpairen die niet gepaired is");
         }
