@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by Sagar on 11-6-2015.
  */
@@ -7,10 +9,20 @@ public class Application {
     public static Application getInstance() {
         return ourInstance;
     }
+    ArrayList<InputNode> startNodes;
+    ArrayList<Node> nodes;
+    ArrayList<OutputNode> endNodes;
 
     private Application() {
         System.out.println("Application gemaakt");
+        startNodes = new ArrayList<>();
+        nodes = new ArrayList<>();
+        endNodes = new ArrayList<>();
 
+        nodes.add(NodeFactory.getInstance().createNode("AND"));
+    }
+
+    private void andTest(){
         InputNode A = new InputNode();
         InputNode B = new InputNode();
         ANDNode and = new ANDNode();
@@ -53,8 +65,5 @@ public class Application {
         System.out.println("Value B bij uitzetten B "+ B.getValue());
         System.out.println("Value and bij uitzetten B "+ and.getValue());
         System.out.println("Value output bij uitzetten B "+ output.getValue());
-
-
-
     }
 }
