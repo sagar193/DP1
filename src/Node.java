@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Created by Sagar on 10-6-2015.
  */
-public abstract class Node implements Output, Input {
+public abstract class Node implements Output, Input, NodeInterface {
     ArrayList<Output> observers;
 
     int maxInputs;

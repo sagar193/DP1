@@ -3,7 +3,7 @@ import java.util.HashMap;
 /**
  * Created by Sagar on 10-6-2015.
  */
-public class OutputNode implements Output {
+public class OutputNode implements Output, NodeInterface {
     int maxInput;
     int value;
     Input connectedInputs;

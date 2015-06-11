@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Created by Sagar on 10-6-2015.
  */
-public class InputNode implements Input {
+public class InputNode implements Input, NodeInterface {
     ArrayList<Output> observers;
     //@value 0 is off, 1 is on, 2 is not defined
     int value;
@@ -44,4 +44,13 @@ public class InputNode implements Input {
     }
 
 
+    @Override
+    public void pair(Input newInput) {
+        System.out.println("Error, kan niet gekoppeld worden aan een input");
+    }
+
+    @Override
+    public void unpair(Input oldInput) {
+        System.out.println("Error, kan niet gekoppeld worden aan een input");
+    }
 }
