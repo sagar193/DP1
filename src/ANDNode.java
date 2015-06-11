@@ -29,8 +29,10 @@ public class ANDNode extends Node {
     public void pair(Input newInput) {
         if (inputs[0] == null){
             inputs[0] = newInput;
+            inputs[0].registerObserver(this);
         } else if (inputs[1] == null){
             inputs[1]= newInput;
+            inputs[1].registerObserver(this);
         } else {
             System.out.println("Error, ANDGate is vol en probeert een input erbij te zetten");
         }
@@ -54,7 +56,7 @@ public class ANDNode extends Node {
         int newValue;
         if (inputs[0] == null || inputs[1] == null){
             newValue = 2;
-        } else if (inputs[0].getValue() == 1 || inputs [1].getValue() == 1) {
+        } else if (inputs[0].getValue() == 1 && inputs [1].getValue() == 1) {
             newValue = 1;
         } else {
             newValue = 0;
