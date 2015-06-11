@@ -19,7 +19,9 @@ public class Application {
         nodes = new ArrayList<>();
         endNodes = new ArrayList<>();
 
-        nodes.add(NodeFactory.getInstance().createNode("AND"));
+        NodeReader reader = new NodeReader();
+        reader.ReadFile();
+        //nodes.add(NodeFactory.getInstance().createNode("AND"));
     }
 
     private void andTest(){
