@@ -10,17 +10,16 @@ public class Application {
     public static Application getInstance() {
         return ourInstance;
     }
-    ArrayList<InputNode> startNodes;
-    ArrayList<Node> nodes;
-    ArrayList<OutputNode> endNodes;
-    HashMap<String, NodeInterface> allNodes;
+
+    public NodeCollection getNodeCollection() {
+        return nodeCollection;
+    }
+
+    private NodeCollection nodeCollection;
 
     private Application() {
         System.out.println("Application gemaakt");
-        startNodes = new ArrayList<>();
-        nodes = new ArrayList<>();
-        endNodes = new ArrayList<>();
-        allNodes = new HashMap<>();
+        nodeCollection = new NodeCollection();
 
         NodeReader reader = new NodeReader();
         reader.ReadFile();
