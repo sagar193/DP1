@@ -22,8 +22,10 @@ public class NodeFactory {
             return new NORNode();
         } else if (nodeType.equals("OR")){
             return new ORNode();
-        } else if (nodeType.equals("XORNode")){
+        } else if (nodeType.equals("XOR")){
             return new XORNode();
+        } else if (nodeType.equals("NOT")){
+            return new NOTNode();
         } else {
             return null;
         }

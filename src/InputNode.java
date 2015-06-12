@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Created by Sagar on 10-6-2015.
  */
-public class InputNode implements Input, NodeInterface {
+public class InputNode implements Input {
     ArrayList<Output> observers;
     //@value 0 is off, 1 is on, 2 is not defined
     int value;
@@ -41,10 +41,5 @@ public class InputNode implements Input, NodeInterface {
     @Override
     public int getValue() {
         return value;
-    }
-
-    @Override
-    public Character getType() {
-        return 'i';
     }
 }

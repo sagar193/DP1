@@ -3,7 +3,7 @@ import java.util.HashMap;
 /**
  * Created by Sagar on 10-6-2015.
  */
-public class OutputNode implements Output, NodeInterface {
+public class OutputNode implements Output {
     int maxInput;
     int value;
     Input connectedInputs;
@@ -27,6 +27,7 @@ public class OutputNode implements Output, NodeInterface {
         }
         connectedInputs = newInput;
         connectedInputs.registerObserver(this);
+        calculateValue();
     }
 
     public void unpair(Input oldInput){
@@ -37,6 +38,7 @@ public class OutputNode implements Output, NodeInterface {
         } else {
             System.out.println("Error, output probeert een input los te koppelen waaraan het niet gekoppeld is");
         }
+        calculateValue();
     }
 
     public void calculateValue() {
@@ -51,10 +53,5 @@ public class OutputNode implements Output, NodeInterface {
 
     public int getValue(){
         return value;
-    }
-
-    @Override
-    public Character getType() {
-        return 'o';
     }
 }

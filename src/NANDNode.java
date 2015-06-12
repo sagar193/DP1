@@ -18,7 +18,7 @@ public class NANDNode extends Node {
         if(inputs[0] == input || inputs[1] == input){
             calculateValue();
         } else {
-            System.out.println("Error, ANDGate krijgt een update van een node waaraan hij niet gekoppeld is");
+            System.out.println("Error, ORGate krijgt een update van een node waaraan hij niet gekoppeld is");
         }
     }
 
@@ -31,8 +31,9 @@ public class NANDNode extends Node {
             inputs[1]= newInput;
             inputs[1].registerObserver(this);
         } else {
-            System.out.println("Error, ANDGate is vol en probeert een input erbij te zetten");
+            System.out.println("Error, ORGate is vol en probeert een input erbij te zetten");
         }
+        calculateValue();
     }
 
     @Override
@@ -44,8 +45,9 @@ public class NANDNode extends Node {
             inputs[1].unregisterObserver(this);
             inputs[1] = null;
         } else {
-            System.out.println("Error, ANDGate probeerd een input te unpairen die niet gepaired is");
+            System.out.println("Error, ORGate probeerd een input te unpairen die niet gepaired is");
         }
+        calculateValue();
     }
 
     @Override

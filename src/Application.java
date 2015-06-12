@@ -16,14 +16,18 @@ public class Application {
     }
 
     private NodeCollection nodeCollection;
+    private NodeReader reader;
 
     private Application() {
         System.out.println("Application gemaakt");
         nodeCollection = new NodeCollection();
 
-        NodeReader reader = new NodeReader();
-        reader.ReadFile();
+        reader = new NodeReader();
         //nodes.add(NodeFactory.getInstance().createNode("AND"));
+    }
+
+    public void ReadFile(){
+        reader.ReadFile();
     }
 
     private void andTest(){

@@ -36,6 +36,7 @@ public class ANDNode extends Node {
         } else {
             System.out.println("Error, ANDGate is vol en probeert een input erbij te zetten");
         }
+        calculateValue();
     }
 
     @Override
@@ -51,6 +52,7 @@ public class ANDNode extends Node {
         } else {
             System.out.println("Error, ANDGate probeerd een input te unpairen die niet gepaired is");
         }
+        calculateValue();
     }
 
     @Override

@@ -26,26 +26,39 @@ public class NodeReader {
 
                         if(initNodes) {
                             // Input
-                            System.out.println("if");
-                            System.out.println(compValue);
-                            System.out.println(compName);
+                            //System.out.println("if");
+                            //System.out.println(compValue);
+                            //System.out.println(compName);
 
-                            //IComponent comp = Factory.create(compValue);
-                            //comp.setCircuit(this);
-                            //_components.put(compName, comp);
+                            if(compValue.equals("INPUT_HIGH")){
+                                InputNode inputNode= new InputNode();
+                                inputNode.turnOn();
+                                Application.getInstance().getNodeCollection().put(compName, inputNode);
+                            } else if(compValue.equals("INPUT_LOW")){
+                                InputNode inputNode= new InputNode();
+                                inputNode.turnOff();
+                                Application.getInstance().getNodeCollection().put(compName, inputNode);
+                            } else if(compValue.equals("PROBE")){
+                                OutputNode outputNode = new OutputNode();
+                                Application.getInstance().getNodeCollection().put(compName, outputNode);
+                            } else {
+                                Application.getInstance().getNodeCollection().put(compName, NodeFactory.getInstance().createNode(compValue));
+                            }
                         } else {
                             if(compValue.contains(",")) {
                                 String[] split = compValue.split(",");
                                 for (int i = 0; i < split.length; i++) {
-                                    System.out.println("else if");
-                                    System.out.println(compValue);
-                                    System.out.println(compName);
+                                    //System.out.println("else if");
+                                    //System.out.println(split[i]);
+                                    //System.out.println(compName);
+                                    Application.getInstance().getNodeCollection().pair(compName, split[i]);
                                     //LinkCircuit(compName, split[i]);
                                 }
                             } else {
-                                System.out.println("else else");
-                                System.out.println(compValue);
-                                System.out.println(compName);
+                                //System.out.println("else else");
+                                //System.out.println(compValue);
+                                //System.out.println(compName);
+                                Application.getInstance().getNodeCollection().pair(compName, compValue);
                                 //LinkCircuit(compName, compValue);
                             }
                         }

@@ -15,14 +15,23 @@ public class NodeCollection {
     }
 
     public void put(String string, OutputNode newNode){
+        if (newNode == null){
+            System.out.println(string + "is a null node");
+        }
         outputNodes.put(string, newNode);
     }
 
     public void put(String string, InputNode newNode){
+        if (newNode == null){
+            System.out.println(string + "is a null node");
+        }
         inputNodes.put(string, newNode);
     }
 
     public void put(String string, Node newNode){
+        if (newNode == null){
+            System.out.println(string + "is a null node");
+        }
         nodes.put(string, newNode);
     }
 
@@ -33,6 +42,8 @@ public class NodeCollection {
         InputNode inputChild = inputNodes.get(child);
         Node childNode = nodes.get(child);
         OutputNode outputChild = outputNodes.get(child);
+
+        System.out.println("Trying to pair child:" +child + " to : "+ parent);
 
         if(inputChild != null){
             System.out.println("Error, Input als child gegeven, dit kan niet");
@@ -60,10 +71,14 @@ public class NodeCollection {
             }
         }
         else{
-            System.out.println("Something goes wrong pairing 2 nodes");
-            System.out.println("Parent name: "+ parent + ", Child name: "+ child);
+            System.out.println("Something goes wrong pairing parent: "+ parent + " to child: "+ child);
         }
+    }
 
-
+    public void printOutputs(){
+        System.out.println("\nPrinting outputs: ");
+        for(String key: outputNodes.keySet()){
+            System.out.println(key +": "+outputNodes.get(key).getValue());
+        }
     }
 }

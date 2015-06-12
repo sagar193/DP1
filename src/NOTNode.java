@@ -1,12 +1,12 @@
 /**
- * Created by Sagar on 11-6-2015.
+ * Created by Sagar on 12-6-2015.
  */
-public class ORNode extends Node {
+public class NOTNode extends Node{
 
-    public ORNode() {
-        maxInputs = 2;
+    public NOTNode() {
+        maxInputs = 1;
         value = 2;
-        inputs = new Input[2];
+        inputs = new Input[maxInputs];
     }
 
     @Override
@@ -16,10 +16,10 @@ public class ORNode extends Node {
 
     @Override
     public void update(Input input) {
-        if(inputs[0] == input || inputs[1] == input){
+        if(inputs[0] == input){
             calculateValue();
         } else {
-            System.out.println("Error, ORGate krijgt een update van een node waaraan hij niet gekoppeld is");
+            System.out.println("Error, NOTGate krijgt een update van een node waaraan hij niet gekoppeld is");
         }
     }
 
@@ -28,11 +28,8 @@ public class ORNode extends Node {
         if (inputs[0] == null){
             inputs[0] = newInput;
             inputs[0].registerObserver(this);
-        } else if (inputs[1] == null){
-            inputs[1]= newInput;
-            inputs[1].registerObserver(this);
         } else {
-            System.out.println("Error, ORGate is vol en probeert een input erbij te zetten");
+            System.out.println("Error, NOTGate is vol en probeert een input erbij te zetten");
         }
         calculateValue();
     }
@@ -42,11 +39,9 @@ public class ORNode extends Node {
         if (inputs[0] == oldInput){
             inputs[0].unregisterObserver(this);
             inputs[0] = null;
-        } else if (inputs[1] == oldInput){
-            inputs[1].unregisterObserver(this);
-            inputs[1] = null;
+            value = 2;
         } else {
-            System.out.println("Error, ORGate probeerd een input te unpairen die niet gepaired is");
+            System.out.println("Error, NOTGate probeerd een input te unpairen die niet gepaired is");
         }
         calculateValue();
     }
@@ -54,12 +49,14 @@ public class ORNode extends Node {
     @Override
     public void calculateValue() {
         int newValue;
-        if (inputs[0] == null || inputs[1] == null){
+        if (inputs[0] == null){
             newValue = 2;
-        } else if (inputs[0].getValue() == 1 || inputs [1].getValue() == 1) {
+        } else if (inputs[0].getValue() == 1) {
+            newValue = 0;
+        }  else if (inputs[0].getValue() == 0){
             newValue = 1;
         } else {
-            newValue = 0;
+            newValue = 2;
         }
 
         if (value != newValue){
