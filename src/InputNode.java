@@ -43,14 +43,8 @@ public class InputNode implements Input, NodeInterface {
         return value;
     }
 
-
     @Override
-    public void pair(Input newInput) {
-        System.out.println("Error, kan niet gekoppeld worden aan een input");
-    }
-
-    @Override
-    public void unpair(Input oldInput) {
-        System.out.println("Error, kan niet gekoppeld worden aan een input");
+    public Character getType() {
+        return 'i';
     }
 }

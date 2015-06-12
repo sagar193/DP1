@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Created by Sagar on 10-6-2015.
  */
-public abstract class Node implements Output, Input, NodeInterface {
+public abstract class Node implements Output, Input, NodeInterface{
     ArrayList<Output> observers;
 
     int maxInputs;
@@ -27,5 +27,10 @@ public abstract class Node implements Output, Input, NodeInterface {
 
     public void unregisterObserver(Output removeObserver){
         observers.remove(removeObserver);
+    }
+
+    @Override
+    public Character getType() {
+        return 'g';
     }
 }

@@ -52,4 +52,9 @@ public class OutputNode implements Output, NodeInterface {
     public int getValue(){
         return value;
     }
+
+    @Override
+    public Character getType() {
+        return 'o';
+    }
 }
